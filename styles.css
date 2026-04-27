@@ -23,6 +23,10 @@ body {
   margin-inline: auto;
 }
 
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
 .topbar {
   position: sticky;
   top: 0;
@@ -35,17 +39,25 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   padding: .9rem 0;
 }
 .brand {
   font-weight: 800;
   letter-spacing: .2px;
+  white-space: nowrap;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
 }
 nav a {
   color: var(--muted);
   text-decoration: none;
   margin-left: 1rem;
   font-weight: 600;
+  padding: .35rem .2rem;
 }
 nav a:hover { color: var(--text); }
 
@@ -153,4 +165,76 @@ h3 { margin-top: 0; }
   color: var(--muted);
   text-align: center;
   font-size: .95rem;
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: min(1120px, 94%);
+  }
+
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .65rem;
+    padding: .75rem 0;
+  }
+
+  nav {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: .2rem;
+    gap: .5rem;
+  }
+
+  nav a {
+    margin-left: 0;
+    white-space: nowrap;
+    font-size: .95rem;
+    padding: .35rem .1rem;
+  }
+
+  .hero {
+    padding: 4.5rem 0 3.2rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 560px) {
+  section[id] {
+    scroll-margin-top: 7.5rem;
+  }
+
+  h1 {
+    font-size: clamp(1.85rem, 9vw, 2.4rem);
+  }
+
+  .sub,
+  .card p,
+  .card li,
+  .tag,
+  p {
+    font-size: .98rem;
+  }
+
+  .cta-row {
+    flex-direction: column;
+  }
+
+  .cta-row .btn,
+  #contact .btn {
+    width: 100%;
+    text-align: center;
+    padding: .9rem 1rem;
+  }
+
+  .grid.two,
+  .grid.three,
+  .tag-grid {
+    grid-template-columns: 1fr;
+  }
 }
